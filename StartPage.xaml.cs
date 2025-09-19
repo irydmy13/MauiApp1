@@ -1,5 +1,5 @@
 ﻿using Microsoft.Maui.Controls;
-using TARgv24;
+using MauiApp1;
 
 namespace MauiApp1;
 

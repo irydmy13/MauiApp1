@@ -1,4 +1,4 @@
-namespace TARgv24;
+namespace MauiApp1;
 
 public partial class FigurePage : ContentPage
 {

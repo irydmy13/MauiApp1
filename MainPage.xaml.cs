@@ -1,24 +1,21 @@
-﻿namespace MauiApp1
+﻿using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
+
+namespace MauiApp1;
+
+public static class MauiProgram
 {
-    public partial class MainPage : ContentPage
+    public static MauiApp CreateMauiApp()
     {
-        int count = 0;
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-
-        private void OnCounterClicked(object? sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
+        return builder.Build();
     }
 }
