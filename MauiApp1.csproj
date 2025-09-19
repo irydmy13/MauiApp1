@@ -60,8 +60,66 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="MauiProgram.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Include="MauiProgram.cs">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Lumememm.xaml.cs">
+	    <DependentUpon>Lumememm.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="FigurePage.xaml.cs">
+	    <DependentUpon>FigurePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="DateTimePage.xaml.cs">
+	    <DependentUpon>DateTimePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="TextPage.xaml.cs">
+	    <DependentUpon>TextPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="TimerPage.xaml.cs">
+	    <DependentUpon>TimerPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Valgusfoor.xaml.cs">
+	    <DependentUpon>Valgusfoor.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="StartPage.xaml.cs">
+	    <DependentUpon>StartPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Lumememm.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="FigurePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="DateTimePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="TextPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="TimerPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Valgusfoor.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="StartPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

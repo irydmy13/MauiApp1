@@ -1,3 +1,4 @@
+﻿
 using Microsoft.Maui.Layouts;
 
 namespace MauiApp1;
@@ -13,54 +14,52 @@ public partial class DateTimePage : ContentPage
     AbsoluteLayout al;
     public DateTimePage()
     {
-        //InitializeComponent();
         mis_on_valitud = new Label
         {
-            Text = "Siin kuvatakse valitud kuupaev voi kellaeg",
+            Text = "Siin kuvatakse valitud info",
             FontSize = 20,
-            TextColor = Colors.Blue,
-            FontFamily = "verdana"
+            TextColor = Colors.Red,
+            FontFamily = "Lovin Kites 400"
         };
+
         datePicker = new DatePicker
         {
             FontSize = 20,
-            Background = Color.FromRgb(200, 200, 100),
+            BackgroundColor = Color.FromRgb(200, 200, 100),
             TextColor = Colors.Black,
-            FontFamily = "verdana",
-            MinimumDate = DateTime.Now.AddDays(-7),
+            FontFamily = "Lovin Kites 400",
+            MinimumDate = DateTime.Now.AddDays(-7),//new DateTime(1900, 1, 1),
             MaximumDate = new DateTime(2100, 12, 31),
             Date = DateTime.Now,
             Format = "D"
-
         };
+        datePicker.DateSelected += Kuupäeva_valimine;
+
         timePicker = new TimePicker
         {
             FontSize = 20,
-            Background = Color.FromRgb(200, 200, 100),
+            BackgroundColor = Color.FromRgb(200, 200, 100),
             TextColor = Colors.Black,
             FontFamily = "Lovin Kites 400",
             Time = new TimeSpan(12, 0, 0),
             Format = "T"
         };
-
-        timePicker.PropertyChanged += (s,e) =>
+        timePicker.PropertyChanged += (s, e) =>
         {
             if (e.PropertyName == TimePicker.TimeProperty.PropertyName)
             {
                 mis_on_valitud.Text = $"Valisite kellaaja: {timePicker.Time}";
             }
-        
-     
         };
 
         picker = new Picker
         {
-            Title = "Vali uks",
+            Title = "Vali üks",
             FontSize = 20,
             BackgroundColor = Color.FromRgb(200, 200, 100),
             TextColor = Colors.Black,
             FontFamily = "Lovin Kites 400",
-            ItemsSource = new List<string> { "Uks", "Kaks", "Kolm", "Neli", "Viis"}
+            ItemsSource = new List<string> { "Üks", "Kaks", "Kolm", "Neli", "Viis" }
         };
         //picker.Items.Add("Kuus");
         //picker.ItemsSource.Add("Kuus");
@@ -77,10 +76,10 @@ public partial class DateTimePage : ContentPage
             Minimum = 0,
             Maximum = 100,
             Value = 50,
-             BackgroundColor = Color.FromRgb(200, 200, 100),
-             ThumbColor = Colors.Black,
-             MinimumTrackColor = Colors.Black,
-             MaximumTrackColor = Colors.Black,
+            BackgroundColor = Color.FromRgb(200, 200, 100),
+            ThumbColor = Colors.Red,
+            MinimumTrackColor = Colors.Green,
+            MaximumTrackColor = Colors.Blue
         };
         slider.ValueChanged += (s, e) =>
         {
@@ -95,21 +94,18 @@ public partial class DateTimePage : ContentPage
             Increment = 1,
             Value = 20,
             BackgroundColor = Color.FromRgb(200, 200, 100),
-            HorizontalOptions = LayoutOptions.Center,
+            HorizontalOptions = LayoutOptions.Center
         };
         stepper.ValueChanged += (s, e) =>
         {
             mis_on_valitud.Text = $"Stepper value: {e.NewValue}";
         };
-
-        al = new AbsoluteLayout { Children = { mis_on_valitud, datePicker, timePicker, picker, slider, stepper} };
+        al = new AbsoluteLayout { Children = { mis_on_valitud, datePicker, timePicker, picker, slider, stepper } };
         //AbsoluteLayout.SetLayoutBounds(mis_on_valitud, new Rect(0.5, 0.0, 0.9, 0.2));
         //AbsoluteLayout.SetLayoutFlags(mis_on_valitud, AbsoluteLayoutFlags.All);
-        //AbsoluteLayout.SetLayoutBounds(mis_on_valitud, new Rect(0.5, 0.2, AbsoluteLayout.AutoSize, 0.2));
-        //AbsoluteLayout.SetLayoutFlags(mis_on_valitud, AbsoluteLayoutFlags.All);
-        //AbsoluteLayout.SetLayoutBounds(datePicker, new Rect(0.5, 0.4, 0.9, 0.2));
+        //AbsoluteLayout.SetLayoutBounds(datePicker, new Rect(0.5, 0.2, 0.9, 0.2));
         //AbsoluteLayout.SetLayoutFlags(datePicker, AbsoluteLayoutFlags.All);
-        //AbsoluteLayout.SetLayoutBounds(timePicker, new Rect(0.5, 0.6, 0.9, 0.2));
+        //AbsoluteLayout.SetLayoutBounds(timePicker, new Rect(0.5, 0.4, 0.9, 0.2));
         //AbsoluteLayout.SetLayoutFlags(timePicker, AbsoluteLayoutFlags.All);
         //AbsoluteLayout.SetLayoutBounds(picker, new Rect(0.5, 0.6, 0.9, 0.2));
         //AbsoluteLayout.SetLayoutFlags(picker, AbsoluteLayoutFlags.All);
@@ -120,20 +116,18 @@ public partial class DateTimePage : ContentPage
 
         var elementid = new View[]
         {
-            mis_on_valitud, datePicker, timePicker, picker, slider, stepper
+             mis_on_valitud, datePicker,timePicker, picker, slider,stepper
         };
         for (int i = 0; i < elementid.Length; i++)
         {
             AbsoluteLayout.SetLayoutBounds(elementid[i], new Rect(0.5, i * 0.16, 0.9, 0.15));
             AbsoluteLayout.SetLayoutFlags(elementid[i], AbsoluteLayoutFlags.All);
         }
-            Content = al;
-      
+        Content = al;
     }
 
-    private void Kuupaeva_valimine(object? sender, DateChangedEventArgs e)
+    private void Kuupäeva_valimine(object? sender, DateChangedEventArgs e)
     {
-        mis_on_valitud.Text = $"Valisite kuupaevaks: " + e.NewDate.ToString("D");
+        mis_on_valitud.Text = $"Valisite kuupäeva: {e.NewDate:D}";
     }
-
 }

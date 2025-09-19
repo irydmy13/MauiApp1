@@ -4,17 +4,13 @@ namespace MauiApp1;
 
 public partial class TimerPage : ContentPage
 {
-	public TimerPage()
-	{
-		InitializeComponent();
+    public TimerPage()
+    {
+        InitializeComponent();
     }
-	bool on_off = true;
-	private void Klik_pealdise_peal(object sender, TappedEventArgs e)
-	{
-		while (true)
-		{
-
-		}
+    bool on_off = true;
+    private void Klik_pealdise_peal(object sender, TappedEventArgs e)
+    {
         if (on_off)
         {
             on_off = false;
@@ -22,16 +18,15 @@ public partial class TimerPage : ContentPage
         else
         {
             on_off = true;
+            Naita_aeg();
         }
     }
-	private async void Naita_aeg()
-	{
-		while (on_off)
-
-		{
+    private async void Naita_aeg()
+    {
+        while (on_off)
+        {
             label.Text = DateTime.Now.ToString("HH:mm:ss");
             await Task.Delay(1000);
         }
-
     }
 }

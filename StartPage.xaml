@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.StartPage"
+             Title="Näidised">
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#111111"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="CornerRadius" Value="18"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="HeightRequest" Value="52"/>
+            <Setter Property="HorizontalOptions" Value="Fill"/>
+        </Style>
+        <Style TargetType="Label" x:Key="TitleLabel">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,6,0,12"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#2A2A72" Offset="0"/>
+            <GradientStop Color="#009FFD" Offset="1"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid Padding="20">
+        <ScrollView>
+            <VerticalStackLayout Spacing="18" HorizontalOptions="Center" VerticalOptions="Center">
+
+                <Label Text="Näidised" Style="{StaticResource TitleLabel}" />
+
+                <Frame Padding="20"
+               CornerRadius="24"
+               BackgroundColor="#1A000000"
+               HasShadow="True"
+               WidthRequest="340">
+                    <VerticalStackLayout Spacing="14">
+
+                        <Button Text="Ava tekstileht" Clicked="OpenTextPage"/>
+                        <Button Text="Ava joonise leht (Figure)" Clicked="OpenFigurePage"/>
+                        <Button Text="Ava taimeri leht" Clicked="OpenTimerPage"/>
+                        <Button Text="Ava valgusfoori leht" Clicked="OpenValgusfoorPage"/>
+
+                    </VerticalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

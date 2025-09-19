@@ -1,10 +1,11 @@
 ﻿using Microsoft.Maui.Controls;
+using TARgv24;
 
 namespace MauiApp1;
 
 public partial class StartPage : ContentPage
 {
-    public List<ContentPage> lehed = new List<ContentPage>() { new TextPage(), new FigurePage(), new TimerPage(), new DateTimePage(), new Lumememm()};
+    public List<ContentPage> lehed = new List<ContentPage>() { new TextPage(), new FigurePage(), new TimerPage(), new DateTimePage(), new Lumememm() };
     public List<string> tekstid = new List<string>() { "Tee lahti leht Tekst'ga", "Tee lahti Figure leht", "Käivita taimeri", "Kuupäevad ja kellaajad", "Lumememm" };
     ScrollView sv;
     VerticalStackLayout vsl;
@@ -29,3 +30,4 @@ public partial class StartPage : ContentPage
     private async void OpenLumememmPage(object sender, EventArgs e)
         => await Navigation.PushAsync(new Lumememm());
 }
+    

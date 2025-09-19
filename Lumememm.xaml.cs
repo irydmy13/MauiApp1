@@ -1,24 +1,12 @@
-﻿using Microsoft.Maui.Layouts;
+using Microsoft.Maui.Layouts;
 
 namespace MauiApp1;
 
 public partial class Lumememm : ContentPage
 {
-    // Подпись выбранного действия
-    Label mis_on_valitud;
-
-    // Управление
-    Picker picker;       // выбор действия
-    Button btn;          // кнопка "выполнить"
-    Slider slider;       // прозрачность
-    Stepper stepper;     // скорость (мс)
-
-    // Снеговик (контейнер + части)
+    DatePicker datePicker;
+    TimePicker timePicker;
     AbsoluteLayout al;
-    AbsoluteLayout snowman; // на нём меняем opacity/анимации
-    Frame keha;   // тело
-    Frame pea;    // голова
-    Frame aamber; // ведро
 
     Random rnd = new Random();
 

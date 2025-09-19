@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.Lumememm"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Lumememm">
+
+    <VerticalStackLayout Padding="16" Spacing="10">
+
+        <Label x:Name="mis_on_valitud"
+               Text="Vali tegevus ja vajuta nuppu"
+               FontSize="18"
+               TextColor="Black"
+               HorizontalTextAlignment="Center" />
+
+        <!-- Выбор действия -->
+        <Picker x:Name="picker"
+                Title="Vali tegevus"
+                FontSize="16"
+                BackgroundColor="#C8C864"
+                TextColor="Black"
+                SelectedIndexChanged="Picker_SelectedIndexChanged">
+            <Picker.Items>
+                <x:String>Peida lumememm</x:String>
+                <x:String>Näita lumememm</x:String>
+                <x:String>Muuda värvi</x:String>
+                <x:String>Sulata</x:String>
+                <x:String>Tantsi</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <!-- Кнопка запуска действия -->
+        <Button x:Name="btn"
+                Text="Käivita"
+                BackgroundColor="#C8C864"
+                TextColor="Black"
+                Clicked="Btn_Clicked" />
+
+        <!-- Прозрачность -->
+        <Label Text="Läbipaistvus (Opacity)" FontSize="14" />
+        <Slider x:Name="slider"
+                Minimum="0"
+                Maximum="1"
+                Value="1"
+                BackgroundColor="#C8C864"
+                ThumbColor="Black"
+                MinimumTrackColor="Black"
+                MaximumTrackColor="Black"
+                ValueChanged="Slider_ValueChanged" />
+
+        <!-- Скорость -->
+        <Label x:Name="speedLabel" Text="Kiirus: 600 ms" FontSize="14" />
+        <Stepper x:Name="stepper"
+                 Minimum="100"
+                 Maximum="2000"
+                 Increment="100"
+                 Value="600"
+                 BackgroundColor="#C8C864"
+                 ValueChanged="Stepper_ValueChanged" />
+
+        <!-- Область для снеговика -->
+        <Grid HeightRequest="360">
+            <!-- Сам снеговик в AbsoluteLayout -->
+            <AbsoluteLayout x:Name="snowman">
+
+                <!-- Тело -->
+                <Frame x:Name="keha"
+                       BackgroundColor="White"
+                       BorderColor="LightGray"
+                       CornerRadius="999"
+                       HasShadow="False"
+                       AbsoluteLayout.LayoutFlags="All"
+                       AbsoluteLayout.LayoutBounds="0.5,0.75,0.5,0.4"/>
+
+                <!-- Голова -->
+                <Frame x:Name="pea"
+                       BackgroundColor="White"
+                       BorderColor="LightGray"
+                       CornerRadius="999"
+                       HasShadow="False"
+                       AbsoluteLayout.LayoutFlags="All"
+                       AbsoluteLayout.LayoutBounds="0.5,0.45,0.32,0.26"/>
+
+                <!-- Ведро -->
+                <Frame x:Name="aamber"
+                       BackgroundColor="Sienna"
+                       CornerRadius="6"
+                       HasShadow="False"
+                       Rotation="-10"
+                       AbsoluteLayout.LayoutFlags="All"
+                       AbsoluteLayout.LayoutBounds="0.43,0.28,0.18,0.09"/>
+            </AbsoluteLayout>
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>
