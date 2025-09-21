@@ -1,23 +1,18 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <Shell x:Class="MauiApp1.AppShell"
        xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:MauiApp1">
 
     <TabBar>
-        <Tab Title="Näidised" Icon="home.png">
-            <ShellContent Title="Start"
-                    ContentTemplate="{DataTemplate local:StartPage}" />
+        <Tab Title="Näidised">
+            <ShellContent Title="Start" ContentTemplate="{DataTemplate local:StartPage}" />
         </Tab>
-
-        <Tab Title="Lumememm" Icon="snow.png">
-            <ShellContent Title="Lumememm"
-                    ContentTemplate="{DataTemplate local:Lumememm}" />
+        <Tab Title="Lumememm">
+            <ShellContent Title="Lumememm" ContentTemplate="{DataTemplate local:Lumememm}" />
         </Tab>
-
-        <Tab Title="Valgusfoor" Icon="traffic.png">
-            <ShellContent Title="Valgusfoor"
-                    ContentTemplate="{DataTemplate local:Valgusfoor}" />
+        <Tab Title="Valgusfoor">
+            <ShellContent Title="Valgusfoor" ContentTemplate="{DataTemplate local:Valgusfoor}" />
         </Tab>
     </TabBar>
+
 </Shell>
